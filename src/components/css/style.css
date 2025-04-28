@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Ubuntu:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Monoton&family=Niconne&family=Ubuntu:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 *{
     margin: 0;
@@ -12,21 +13,92 @@
 body{
     background: #081b29;
     color: #ededed;
+    font-family: 'Ubuntu',sans-serif;
     transition: all 0.5s ease;
 }
 
-.header{
-  position: fixed;
-  top: 0;
-  left: 0; 
-  width: 100%;
-  padding: 20px 10%;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    color: #ededed;
+    cursor: pointer;
 }
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+
+    .navbar a {
+        display: none;
+      }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    padding: 20px 10%;
+    background-color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .header nav {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Spacing between nav links */
+  }
+  
+  .header nav a {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 15px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: all 0.5s ease;
+  }
+  
+  /* Underline growing effect */
+  .header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    /* background: #1976d2; */
+    background: linear-gradient(90deg, #1976d2 0 calc(100vw - 3px));
+    transition: width 0.3s ease;
+  }
+  
+  .header nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Optional scroll-progress background effect for nav */
+  .header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #1976d2 0 calc(100vw - 3px));
+    width: 0%;
+    animation: scroll-progress linear;
+    animation-timeline: scroll(root);
+    z-index: -1;
+  }
+  
+  @keyframes scroll-progress {
+    100% {
+      width: 100%;
+    }
+  }
 
 .logo{
     font-family: 'Niconne', cursive;
@@ -42,22 +114,29 @@ body{
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
+    transition: background-color 0.3s ease;
 }
 
 .navbar a:hover,
 .navbar a.active {
+    font-size: 20px;
     color: #00abf0;
+}
+
+div.section p{
+    font-size: 1.25rem;
 }
 
 .home{
     height: 100vh;
     display: flex;
-    /* background: url('/src/assets/1.jpg') no-repeat;
-    background-size: cover;
-    background-position: center; */
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: 10%;
+    color: #fff;
+    border-bottom: 3px solid #000;
+    font-size: 4rem;
     text-align: left;
 }
 
@@ -80,6 +159,7 @@ body{
 .home-content p{
     font-size: 15px;
     margin: 20px 0;
+    color: #00aea5;
 }
 
 .home-sci{
@@ -126,50 +206,133 @@ body{
     width: 100%;
 }
 
-.projects{
+.about {
     height: 100vh;
     display: flex;
-    /* background: url('/src/assets/1.jpg') no-repeat;
-    background-size: cover;
-    background-position: center; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 30px;
+    color: #fff;
+    border-bottom: 3px solid #000;
+    font-size: 4rem;
 }
 
-.projects p{
-    font-size: 40px;
+.about h2 {
+    font-size: 36px;
     color: #00abf0;
-    font-weight: 700;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-.contact{
+.about p {
+    font-size: 18px;
+    color: #fff; /* A clean dark color for body text */
+    max-width: 800px; /* So lines don’t get too wide */
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.contact {
     height: 100vh;
     display: flex;
-    /* background: url('/src/assets/1.jpg') no-repeat;
-    background-size: cover;
-    background-position: center; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 30px;
+    color: #fff;
+    border-bottom: 3px solid #000;
+    font-size: 4rem;
 }
 
-.contact p{
-    font-size: 40px;
+.contact h2 {
+    font-size: 36px;
     color: #00abf0;
-    font-weight: 700;
+    font-weight: 800;
+    margin-bottom: 20px;
 }
 
-.about{
+.contact p {
+    font-size: 18px;
+    color: #fff; /* A clean dark color for body text */
+    max-width: 800px; /* So lines don’t get too wide */
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.contact a {
+    color: #00abf0;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.projects {
     height: 100vh;
     display: flex;
-    /* background: url('/src/assets/1.jpg') no-repeat;
-    background-size: cover;
-    background-position: center; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 30px;
+    color: #fff;
+    border-bottom: 3px solid #000;
+    font-size: 4rem;
 }
 
-.about p{
+
+.projects h2 {
     font-size: 40px;
     color: #00abf0;
-    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.project-card {
+    background: #112e42;
+    padding: 30px 20px;
+    margin:0px 15px 0px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    background: #0c2235;
+}
+
+.project-card h3 {
+    font-size: 24px;
+    color: #00abf0;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* .project-card .btn {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #00abf0;
+    color: #081b29;
+    border-radius: 5px;
+    font-weight: 100;
+    text-decoration: none;
+    transition: background 0.3s;
+} */
+
+.project-card .btn:hover {
+    background: #007bb5;
 }

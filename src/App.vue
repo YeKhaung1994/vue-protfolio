@@ -7,7 +7,7 @@
 <script>
 //import HelloWorld from './components/HelloWorld.vue'
 import HomePage from './components/views/index.vue'
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
 export default {
   name: 'App',
   components: {
@@ -16,7 +16,6 @@ export default {
   }
 }
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
